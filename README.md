@@ -1,2 +1,2 @@
 # unifor
-repertorio das discplinas na universidade de fortaleza - unifor
+repositorio das disciplinas minnstradas na universidade de fortaleza - unifor
