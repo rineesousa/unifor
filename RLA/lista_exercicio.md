@@ -2,7 +2,7 @@
 # UNIFOR
 **nome**: rinee alves 
 **disciplina**:Raciocínio logico algorítmico 
-## Exercício 3
+## Lista 1, Exercício 1
 ### fluxograma 
 ```mermaid 
 flowchart TD
