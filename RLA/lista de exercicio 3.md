@@ -1,3 +1,9 @@
+# UNIFOR
+**nome**: rinee alves 
+**disciplina**:Raciocínio logico algorítmico 
+
+## Lista 3
+
 ### Exercicio 1
 ```mermaid
 flowchart TD
