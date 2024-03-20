@@ -99,13 +99,13 @@ FIM_ALGORITMO
 ### Fluxograma 
 ```mermaid
 flowchart
-    A[Início] --> B[Digite o primeiro número - a]
+    A([Início]) --> B[Digite o primeiro número - a]
     B --> C(Digite o operador: +, -, *, /)
     C --> D[Digite o segundo número - b]
     D --> E{Operador é válido?}
     E -->|Sim| F[Realizar operação]
     F --> H[Imprimir resultado]
-    H --> I[Fim]
+    H --> I([Fim])
 ```
 #### Pseudocódigo 
 
