@@ -1,3 +1,8 @@
+# UNIFOR
+**nome**: rinee alves 
+**disciplina**:Raciocínio logico algorítmico 
+## Lista 1, Exercício 1
+
 ### Exercicio 1
 ### Fluxograma
 ```mermaid
