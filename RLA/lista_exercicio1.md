@@ -44,7 +44,16 @@ I --> Z
 | 0  | V | 0 | V | "O número é par!" |
 | 13 | V | 1 | F | "O número é impar!" |
 | 30 | V | 0 | V | "O número é par!" |
+### COMENTARIO
+Este pseudocódigo descreve um algoritmo para verificar se um número fornecido pelo usuário é par ou ímpar. 
 
+Primeiro, o usuário é solicitado a inserir um número, que é armazenado na variável 'número'. Em seguida, o algoritmo verifica se o número fornecido é maior que zero. Se for, o algoritmo continua a verificação. 
+
+Dentro do bloco condicional, o algoritmo calcula o resto da divisão do número por 2 (operador '%'). Se o resto for igual a zero, o número é considerado par e uma mensagem informando isso é exibida. Caso contrário, se o resto não for igual a zero, o número é considerado ímpar e uma mensagem informando isso é exibida. 
+
+Se o número fornecido não for positivo, o algoritmo exibirá uma mensagem indicando que o número não é positivo. 
+
+Este é um algoritmo simples e direto para determinar se um número é par ou ímpar, e é útil em várias situações onde essa informação é necessária, como em lógica de programação e análise de dados. No entanto, o algoritmo poderia ser melhorado para tratar corretamente números negativos, caso desejado.
 ### Exercicio 2
 
 ### Fluxograma
