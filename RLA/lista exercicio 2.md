@@ -257,7 +257,7 @@ O --> L
 | Passo 6| Categoria: Adulto                               |                  |
 | Passo 7| Fim                                            |                  |
 ```
-### COMENTATIO
+### COMENTARIO
 Este pseudocódigo descreve um algoritmo simples para categorizar a idade de uma pessoa em diferentes faixas etárias, de acordo com critérios estabelecidos para cada categoria.
 
 O usuário é solicitado a inserir a idade, que é armazenada na variável 'idade'. Em seguida, o algoritmo verifica a idade inserida e, com base nessa idade, determina em qual categoria a pessoa se enquadra.
