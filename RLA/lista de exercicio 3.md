@@ -55,6 +55,17 @@ Vamos criar uma tabela semelhante usando o pseudocódigo fornecido:
 | 13     | V           | 1     | F          | "13 é um número ímpar." |
 | 30     | V           | 0     | V          | "30 é um número par." |
 
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo para verificar se um número inteiro positivo fornecido pelo usuário é par ou ímpar.
+
+Inicialmente, o algoritmo entra em um loop 'REPITA', que continuará solicitando ao usuário para digitar um número inteiro positivo até que o número fornecido seja de fato positivo. Durante cada iteração do loop, o usuário é solicitado a inserir um número, que é armazenado na variável 'numero'. 
+
+Se o número fornecido pelo usuário for negativo, o algoritmo exibirá uma mensagem de erro e solicitará que o usuário insira um número positivo. O loop continuará executando até que um número válido seja inserido.
+
+Após obter um número inteiro positivo, o algoritmo verifica se o número é par ou ímpar usando o operador MOD. Se o resultado da operação MOD 2 for igual a zero, o número é considerado par e uma mensagem indicando isso é exibida. Caso contrário, o número é considerado ímpar e uma mensagem indicando isso é exibida.
+
+Este é um algoritmo simples e eficaz para verificar se um número inteiro é par ou ímpar, com uma validação básica para garantir que apenas números positivos sejam aceitos. Ele pode ser útil em várias situações onde a classificação de números por paridade é necessária.
+
 ### Exercicio 2
 
 ### Fluxograma
@@ -98,6 +109,13 @@ D -- NÃO --> I([FIM])
 | 24       | V                        | 24    |
 | 27       | V                        | 27    |
 | 30       | V                        | 30    |
+
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo simples para exibir os múltiplos de 3 no intervalo de 0 a 30.
+
+O algoritmo utiliza um loop 'PARA' que começa em 0 e vai até 30, com incrementos de 3 em 3. Dentro do loop, cada número do contador é verificado e, se for um múltiplo de 3, é exibido na tela.
+
+Esse é um método direto e eficiente para encontrar e exibir os múltiplos de 3 dentro de um intervalo específico. É útil em situações em que apenas os múltiplos de um determinado número precisam ser identificados e exibidos.
 
 ### Exercicio 3
 
@@ -143,6 +161,18 @@ A([Início]) --> B[Inicializar soma como 0]
 | Sequência | Tamanho | Soma | Saída |
 | --------- | ------- | ---- | ----- |
 | {2, 5, 8} | 3       | 15   | "A soma da sequência é: 15" |
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo para calcular a soma dos elementos de uma sequência de números fornecidos pelo usuário.
+
+Inicialmente, o algoritmo declara um vetor de inteiros chamado 'sequencia' e variáveis para armazenar o tamanho da sequência, a soma dos elementos e um índice de iteração.
+
+O algoritmo então solicita ao usuário que insira cada elemento da sequência, preenchendo o vetor 'sequencia' com os valores fornecidos.
+
+Após preencher o vetor, o algoritmo utiliza um loop 'PARA' para percorrer todos os elementos do vetor e calcular a soma dos seus valores, armazenando o resultado na variável 'soma'.
+
+Por fim, o algoritmo exibe a soma dos elementos da sequência.
+
+Este é um algoritmo eficaz para calcular a soma dos elementos de uma sequência de números. É útil em diversas situações, como em problemas matemáticos ou análise de dados. Além disso, o uso de vetores permite que o algoritmo seja aplicado a sequências de qualquer tamanho.
 
 ### Exercicio 4
 
@@ -208,3 +238,14 @@ E -- NÃO --> V
 | 5.0  | V         | 5.0  | 1        | |
 | 7.5  | V         | 12.5 | 2        | |
 | -1   | F         |      |          | "Foram lidas 2 notas. A média aritmética é 6.25!" |
+
+### COMENTARIO
+Este pseudocódigo descreve um algoritmo para calcular a média aritmética das notas dos alunos. O algoritmo solicita ao usuário que insira as notas dos alunos, permitindo que eles insiram quantas notas desejarem. O usuário pode encerrar a entrada de notas inserindo um valor negativo.
+
+O algoritmo utiliza variáveis para armazenar a soma das notas ('soma'), o número de notas inseridas ('contador') e a quantidade total de notas ('quantidade_notas'). Além disso, é declarada uma variável para armazenar a média das notas ('media').
+
+Durante o processo de entrada das notas, o algoritmo verifica se a nota inserida pelo usuário é válida (ou seja, se é não negativa). Se for, a nota é somada à soma total das notas e o contador é incrementado. O loop continua até que o usuário insira uma nota negativa, indicando o fim da entrada.
+
+Após encerrar a entrada de notas, o algoritmo verifica se pelo menos uma nota foi inserida (verificando se o contador é maior que zero). Se sim, calcula a média aritmética das notas e exibe a quantidade total de notas lidas e a média aritmética. Se nenhum nota foi inserida, o algoritmo exibe uma mensagem informando isso.
+
+Este é um algoritmo eficaz para calcular a média das notas dos alunos, permitindo uma entrada flexível de dados e fornecendo feedback adequado ao usuário. É útil em situações onde é necessário calcular a média de um conjunto variável de valores, como em sistemas de gestão educacional.
