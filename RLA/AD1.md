@@ -28,6 +28,9 @@
 12   ESCREVA "b =", b
 13 FIM
 ```
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo simples para trocar os valores de duas variáveis, 'a' e 'b', utilizando uma variável auxiliar 'aux'. Inicialmente, o usuário é solicitado a fornecer os valores de 'a' e 'b'. Em seguida, os valores são trocados utilizando a variável auxiliar para armazenar temporariamente um dos valores. Por fim, os novos valores de 'a' e 'b' são exibidos. Este é um método eficaz e comum para realizar a troca de valores entre duas variáveis em muitas linguagens de programação.
+
 ### Exercicio 2
 ```
 1  ALGORITMO contagem_aprovados
@@ -49,6 +52,9 @@
 17 FIM
 
 ```
+### COMENTARIO 
+Esse pseudocódigo descreve um algoritmo para contar o número de alunos aprovados, considerando um intervalo de notas entre 50 e 100. Inicialmente, solicita-se ao usuário que insira o número total de alunos ('n'). Em seguida, o algoritmo inicia um loop enquanto 'i' for menor ou igual a 'n'. Dentro desse loop, o algoritmo solicita a nota do aluno 'i' e verifica se está dentro do intervalo de aprovação (50 a 100). Se a nota estiver dentro desse intervalo, o contador 'cont' é incrementado em 1. Após percorrer todas as notas dos alunos, o algoritmo exibe o número total de alunos aprovados. Este é um algoritmo simples e eficaz para calcular a contagem de alunos aprovados em um conjunto de notas.
+
 ### Exercicio 3
 ```
 1  ALGORITMO soma_numeros
@@ -72,6 +78,9 @@
 19 FIM
 
 ```
+### COMENTARIOS 
+Este pseudocódigo descreve um algoritmo para calcular a soma de uma quantidade 'n' de números fornecidos pelo usuário. Primeiro, solicita-se ao usuário que insira a quantidade de números ('n'), garantindo que 'n' seja maior ou igual a zero. Se 'n' for menor que zero, o algoritmo exibirá uma mensagem de erro e retornará, encerrando a execução. Caso contrário, a variável 'soma' é inicializada como zero e um loop é iniciado para solicitar 'n' números do usuário. A cada iteração do loop, o algoritmo adiciona o número fornecido à variável 'soma'. Após a obtenção de todos os números, a soma total é exibida. Este é um algoritmo simples e útil para calcular a soma de uma série de números fornecidos pelo usuário, com uma validação básica para garantir que a quantidade de números seja válida.
+
 ### Exercicio 4
 ```
 1  ALGORITMO serie_S
@@ -91,6 +100,9 @@
 15 FIM
 
 ```
+### COMENTARIOS 
+Este é um algoritmo eficiente para calcular a soma de uma série matemática específica até um número de termos determinado pelo usuário. É útil para fins de análise numérica e pode ser adaptado para diferentes séries matemáticas.
+
 ### Exercicio 5
 ```
 1  ALGORITMO calcular_fatorial
@@ -110,6 +122,9 @@
 15 FIM
 
 ```
+### COMENTARIO
+Este pseudocódigo descreve um algoritmo para calcular o fatorial de um número inteiro não negativo fornecido pelo usuário. Inicialmente, o usuário é solicitado a inserir um número inteiro não negativo ('n'). O algoritmo verifica se o número fornecido é válido, ou seja, se é maior ou igual a zero. Se o número não for válido, o algoritmo exibirá uma mensagem de erro e encerrará a execução. Caso contrário, o algoritmo calcula o fatorial do número utilizando um loop 'PARA', multiplicando progressivamente o valor de 'fator' pelo valor atual do índice do loop até atingir 'n'. Após o término do loop, o resultado do fatorial é exibido na tela. Este é um algoritmo eficiente e comum para calcular o fatorial de um número inteiro, útil em diversas aplicações matemáticas e de programação.
+
 ### Exercicio 6
 ```
 1  ALGORITMO serie_fibonacci
@@ -128,6 +143,15 @@
 14 FIM
 
 ```
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo para gerar os primeiros 'n' termos da sequência de Fibonacci. A sequência de Fibonacci é uma série de números em que cada número é a soma dos dois anteriores.
+
+No início do algoritmo, o usuário é solicitado a fornecer o número de termos da sequência desejada ('n'). As variáveis 'a' e 'b' são inicializadas como 0 e 1, respectivamente, pois estes são os dois primeiros números da sequência.
+
+Em seguida, um loop 'PARA' é utilizado para iterar de 1 até 'n', onde cada iteração exibe o valor atual de 'a' (que é o primeiro número da sequência de Fibonacci para a iteração atual), calcula o próximo termo da sequência de Fibonacci somando 'a' e 'b' e atualiza as variáveis 'a' e 'b' para os próximos números na sequência.
+
+Ao final do loop, os 'n' primeiros termos da sequência de Fibonacci são exibidos. Este é um algoritmo simples e eficaz para gerar a sequência de Fibonacci até um número específico de termos, sendo útil em várias aplicações matemáticas e de programação.
+
 ### Exercicio 7
 ```
 1  ALGORITMO inverte_numero
@@ -150,3 +174,13 @@
 18 FIM
 
 ```
+### COMENTARIO 
+Este pseudocódigo descreve um algoritmo para inverter um número inteiro positivo fornecido pelo usuário.
+
+Inicialmente, o usuário é solicitado a inserir um número inteiro ('num'). O algoritmo verifica se o número fornecido é maior ou igual a zero. Se for, o algoritmo inicia o processo de inversão.
+
+O algoritmo utiliza uma variável 'num_inv' para armazenar o número invertido e um loop 'REPITA' para iterar enquanto o número fornecido for maior que zero. Dentro do loop, o algoritmo calcula o último dígito do número original ('num') usando o operador de módulo (%), e adiciona esse dígito à variável 'num_inv' após deslocar os dígitos já invertidos uma posição para a esquerda e somar o último dígito. O número original é então atualizado, dividindo-o por 10 para remover o último dígito.
+
+Após inverter todos os dígitos do número, o algoritmo exibe o número invertido ('num_inv'). Se o número fornecido não for positivo, o algoritmo exibirá uma mensagem de erro.
+
+Este é um algoritmo eficiente e útil para inverter números inteiros positivos, e pode ser utilizado em diversas aplicações, como processamento de dados e criptografia.
