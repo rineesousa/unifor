@@ -3,265 +3,396 @@
 **disciplina**:Raciocínio logico algorítmico 
 ## Lista 2 
 
-### Exercicio 1
-### Fluxograma
+#### Fluxograma
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{Digite o primeiro número}}
-B --> C[\num1\]
-C --> D{{Digite o segundo número}}
-D --> E[\num2\]
-E --> F{{Digite o terceiro número}}
-F --> G[\num3\]
-G --> H{{Digite o quarto número}}
-H --> I[\num4\]
-I --> J[soma = num1 + num2 + num3 + num4]
-J --> K[media = soma / 4]
-K --> L{{'A média é: ', media}}
-L --> M([FIM])
+A([INICIO]) --> B{{Digite o salário e profissão}}
+B --> C[\sal, prof\]
+C --> D{prof == 'Tecnico'}
+D --FALSE--> E{prof == 'Gerente'}
+D --TRUE--> F[sal_reaj = 1.5 * sal]
+E --FALSE--> H[sal_reaj = 1.1 * sal]
+E --TRUE--> G[sal_reaj = 1.3 * sal]
+G --> I([FIM])
+F --> I
+H --> J{{'Salário Reajustado = ', sal_reaj}}
+J --> I
 ```
-### Pseudocodigo
+
+#### Pseudocódigo
+```java
+ALGORITMO calReajuste
+DECLARE  sal, sal_reaj: real, prof: caractere
+
+INICIO
+
+    // Insira seu comentário
+    LEIA sal, prof
+
+    // Insira seu comentário
+    ESCOLHA
+
+        // Insira seu comentário
+        CASO prof == “Técnico”		
+            sal_reaj ← 1.5 * sal
+
+        // Insira seu comentário
+        CASO prof = “Gerente”		
+            sal_reaj ← 1.3 * sal
+
+    // Insira seu comentário
+    SENÃO
+        sal_reaj ← 1.1 * sal
+
+    FIM_ESCOLHA
+
+    // Insira seu comentário
+    ESCREVA “Salário Reajustado = “, sal_reaj
+
+FIM
 ```
-1  ALGORITMO calcular_media
-2  DECLARE num1, num2, num3, num4, soma, media: REAL
-3  INICIO
-4    ESCREVA "Digite o primeiro número: "
-5    LEIA num1
-6    ESCREVA "Digite o segundo número: "
-7    LEIA num2
-8    ESCREVA "Digite o terceiro número: "
-9    LEIA num3
-10   ESCREVA "Digite o quarto número: "
-11   LEIA num4
-12   soma = num1 + num2 + num3 + num4
-13   media = soma / 4
-14   ESCREVA "A média é: ", media
-15 FIM
 
-```
-### Teste de mesa
+#### Teste
+| sal | prof | prof == “Técnico” | prof = “Gerente” | sal_reaj | Saída |
+| -- | -- | -- | -- | -- | -- |
+| 1000 | Técnico | V | F | 1500 | “Salário Reajustado = 1500“ |
+| 2000 | Gerente | F | V | 2600 | “Salário Reajustado = 2600“ |
+| 9000 | Diretor | F | F | 9900 | “Salário Reajustado = 9900“ |
 
+## Lista de exercícios 02
 
-| Teste | num1 | num2 | num3 | num4 | soma (cálculo esperado) | média (cálculo esperado) | Saída esperada |
-| ----- | ---- | ---- | ---- | ---- | ----------------------- | ------------------------ | --------------- |
-| 1     | 2    | 4    | 6    | 8    | 20 (2 + 4 + 6 + 8)      | 5                        | "A média é: 5"  |
+### Exercício 01 (2.5 pontos)
+Calcule a média de quatro números inteiros dados.
 
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo simples para calcular a média de quatro números fornecidos pelo usuário.
+#### Fluxograma (1.0 ponto)
 
-Inicialmente, o usuário é solicitado a inserir quatro números. Cada número é armazenado em uma variável diferente: 'num1', 'num2', 'num3' e 'num4'. 
-
-Em seguida, o algoritmo calcula a soma desses quatro números e armazena o resultado na variável 'soma'. Depois, a média é calculada dividindo a soma pelo número de elementos, que neste caso é 4. O resultado é armazenado na variável 'media'.
-
-Por fim, o algoritmo exibe a média calculada na tela.
-
-Este é um algoritmo simples e eficaz para calcular a média de um conjunto de números. Ele pode ser útil em diversas situações, como em aplicações de processamento de dados ou em sistemas de notas escolares.
-
-
-### Exercicio 2
-
-### Fluxograma
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{Digite a temperatura em Celsius C}}
-B --> C[\temp_C\]
-C --> D[Converter para Fahrenheit]
-D --> E[temp_F = 9/5 * temp_C + 32]
-E --> F{{A temperatura em Fahrenheit é: , temp_F}}
-F --> G([FIM])
+A([INICIO]) --> B{{"Digite o número 1:"}}
+B --> C[/num1/]
+C --> D{{"Digite o número 2:"}}
+D --> E[/num2/]
+E --> F{{"Digite o número 3:"}}
+F --> G[/num3/]
+G --> H{{"Digite o número 2:"}}
+H --> I[/num4/]
+I --> J["media = (num1 + num2 + num3 + num4)/4"]
+J --> K{{A média é, media}}
+K --> L([FIM]) 
 ```
-### Pseucodigo
+
+#### Pseudocódigo (1.0 ponto)
+
+```java
+ALGORTIMO Media
+DECLARE num1, num2, num3, num4: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite o número 1:"
+
+    // Insira seu comentário
+    LEIA num1
+
+    // Insira seu comentário
+    ESCREVA "Digite o número 2:"
+
+    // Insira seu comentário
+    LEIA num2
+
+    // Insira seu comentário
+    ESCREVA "Digite o número 3:"
+
+    // Insira seu comentário
+    LEIA num3
+
+    // Insira seu comentário
+    ESCREVA "Digite o número 4:"
+
+    // Insira seu comentário
+    LEIA num4
+
+    // Insira seu comentário
+    media <- (num1 + num2 + num3 + num4)/4
+    ESCREVA "A média é", media
+
+FIM
 ```
-1  ALGORITMO converter_temperatura
-2  DECLARE temp_C, temp_F: REAL
-3  INICIO
-4    ESCREVA "Digite a temperatura em Celsius (C): "
-5    LEIA temp_C
-6    temp_F = (9/5) * temp_C + 32
-7    ESCREVA "A temperatura em Fahrenheit é: ", temp_F
-8  FIM
 
-```
-### Teste de mesa
-| Teste | temp_C | temp_F (cálculo esperado) | Saída esperada |
-| ----- | ------ | -------------------------- | --------------- |
-| 1     | 0      | 32                         | "A temperatura em Fahrenheit é: 32" |
+#### Teste de mesa (0.5 ponto)
 
- ### COMENTARIO 
- Este pseudocódigo descreve um algoritmo simples para converter uma temperatura de Celsius para Fahrenheit. 
+| num1 | num2 | num3 | num4 | saída | 
+| --   | --   | --   | --   | --    | 
+| 0.25 | 0.25 | 2.50 | 1.00 | 1.00  | 
 
-Inicialmente, o usuário é solicitado a inserir a temperatura em graus Celsius ('temp_C'). Em seguida, o algoritmo realiza o cálculo da conversão de Celsius para Fahrenheit usando a fórmula padrão de conversão, que é multiplicar a temperatura em Celsius por 9/5 e adicionar 32. O resultado da conversão é armazenado na variável 'temp_F'. 
+### Exercício 02 (2.5 pontos)
+Leia uma temperatura dada em Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
 
-Por fim, o algoritmo exibe a temperatura convertida em Fahrenheit na tela.
+#### Fluxograma (1.0 ponto)
 
-Este é um algoritmo útil e direto para realizar a conversão de temperatura entre as escalas Celsius e Fahrenheit. Pode ser empregado em muitas aplicações práticas, como em programas de previsão do tempo, sistemas de controle de temperatura ou em tarefas de engenharia e física.
-
-### Exercicio 3
-
-### Fluxograma
 ```mermaid
 flowchart TD
-A([INÍCIO]) --> B{{Digite o primeiro número}}
-B --> C[\num1\]
-C --> D{{Digite o segundo número}}
-D --> E[\num2\]
-E --> F{{Digite o operador +, -, *, /}}
-F --> G[\operador\]
-G --> H{operador é '+'}
-H -- SIM --> I{Efetuar adição}
-I --> J[resultado = num1 + num2]
-J --> K{{'O resultado da adição é: ', resultado}}
-K --> L([FIM])
-H -- NÃO --> M{operador é '-'}
-M -- SIM --> N{Efetuar subtração}
-N --> O[resultado = num1 - num2]
-O --> K
-M -- NÃO --> P{operador é '*'}
-P -- SIM --> Q{Efetuar multiplicação}
-Q --> R[resultado = num1 * num2]
-R --> K
-P -- NÃO --> S{operador é '/'}
-S -- SIM --> T{Verificar divisão por zero}
-T -- SIM --> U[Se num2 != 0 então calcular divisão]
-U --> V[resultado = num1 / num2]
-V --> K
-T -- NÃO --> W[Escrever Erro: Divisão por zero.]
-W --> L
-S -- NÃO --> X[Escrever Operador inválido.]
-X --> L
+A([INICIO]) --> B{{"Digite a temperatura em Celisus:"}}
+B --> C[/C/]
+C --> D["F = (9/5) * C + 32"]
+D --> E{{A temperatura em Fahrenheit é, F, graus}}
+E --> F([FIM])
 ```
-### Pseudocodigo
+
+#### Pseudocódigo (1.0 ponto)
+
+```java
+ALGORTIMO ConverteCelsiusFarenheit
+DECLARE C, F: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite a temperatura em Celisus:"
+
+    // Insira seu comentário
+    LEIA C
+
+    // Insira seu comentário
+    F <- (9/5) * C + 32
+
+    // Insira seu comentário
+    ESCREVA "A temperatura em Fahrenheit é", F, "graus"
+
+FIM
 ```
-1  ALGORITMO calculadora
-2  DECLARE num1, num2, resultado: REAL
-3  DECLARE operador: CARACTERE
-4  INICIO
-5    ESCREVA "Digite o primeiro número: "
-6    LEIA num1
-7    ESCREVA "Digite o segundo número: "
-8    LEIA num2
-9    ESCREVA "Digite o operador (+, -, *, /): "
-10   LEIA operador
-11   SE operador = '+' ENTAO
-12     resultado = num1 + num2
-13     ESCREVA "O resultado da adição é: ", resultado
-14   SENAO SE operador = '-' ENTAO
-15     resultado = num1 - num2
-16     ESCREVA "O resultado da subtração é: ", resultado
-17   SENAO SE operador = '*' ENTAO
-18     resultado = num1 * num2
-19     ESCREVA "O resultado da multiplicação é: ", resultado
-20   SENAO SE operador = '/' ENTAO
-21     SE num2 != 0 ENTAO
-22       resultado = num1 / num2
-23       ESCREVA "O resultado da divisão é: ", resultado
-24     SENAO
-25       ESCREVA "Erro: Divisão por zero."
-26     FIM_SE
-27   SENAO
-28     ESCREVA "Operador inválido."
-29   FIM_SE
-30 FIM
-```
-### Teste de mesa
-| Etapa | Descrição                              | Dados/Resultado |
-|-------|----------------------------------------|------------------|
-| Início|                                        |                  |
-| Passo 1| Digite o primeiro número - a:         | a = 10           |
-| Passo 2| Digite o operador: +, -, *, /:        | operador = "+"   |
-| Passo 3| Digite o segundo número - b:          | b = 5            |
-| Passo 4| Verificar operador válido:            | Sim              |
-| Passo 5| Realizar operação:                    | resultado = 15   |
-| Passo 6| Imprimir resultado:                   | 15               |
-| Passo 7| Fim                                   |                  |
 
-### COMENTARIO 
-Este pseudocódigo descreve uma calculadora simples que permite ao usuário realizar operações básicas de adição, subtração, multiplicação e divisão entre dois números.
+#### Teste de mesa (0.5 ponto)
 
-O usuário é solicitado a inserir dois números e o operador desejado (adição, subtração, multiplicação ou divisão). Depois de inserir os números e o operador, o algoritmo verifica qual operação deve ser realizada com base no operador fornecido.
+| C  | F  | saída                                  | 
+| -- | -- | --                                     |
+| 0  | 32 | A temperatura em Fahrenheit é 32 graus |
 
-Se o operador for '+', o algoritmo realiza a adição dos dois números e exibe o resultado. Se for '-', realiza a subtração, se for '*', realiza a multiplicação e se for '/', realiza a divisão. Além disso, o algoritmo também verifica se a divisão por zero é evitada.
+### Exercício 03 (2.5 pontos)
+Receba dois números reais e um operador e efetue a operação correspondente com os valores recebidos (operandos). 
+O algoritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
 
-Caso o operador inserido não seja válido, o algoritmo exibe uma mensagem de erro indicando que o operador é inválido.
+#### Fluxograma (1.0 ponto)
 
-Este é um algoritmo básico e útil para realizar operações aritméticas simples, podendo ser útil em várias situações cotidianas que envolvam cálculos simples.
-
-### Exercicio 4
-
-### Fluxograma
 ```mermaid
 flowchart TD
-A([INÍCIO]) --> B{{Digite a idade}}
-B --> C[\idade\]
-C --> D{idade >= 5}
-D -- SIM --> E{idade <= 7}
-E -- SIM --> F{{'Categoria: Infantil A'}}
-F --> L([FIM])
-E -- NÃO --> G{idade <= 10}
-G -- SIM --> H{{'Categoria: Infantil B'}}
-H --> L
-G -- NÃO --> I{idade <= 13}
-I -- SIM --> J{{'Categoria: Juvenil A'}}
-J --> L
-I -- NÃO --> K{idade <= 17}
-K -- SIM --> M{{'Categoria: Juvenil B'}}
-M --> L
-K -- NÃO --> N{{'Categoria: Adulto'}}
-N --> L
-D -- NÃO --> O{{'Idade inválida'}}
-O --> L
+A([INICIO]) --> B{{"Operações válidas: 1(soma), 2(subtração), 3(multiplicação) e 4(divisão)"}}
+B --> C{{Digite uma operação:}}
+C --> D[/op/]
+D --> E{{Digite um número:}}
+E --> F[/num1/]
+F --> G{{Digite outro número:}}
+G --> H[/num2/]
+H --> I{op == 1}
+I --FALSE--> J{op == 2}
+J --FALSE--> L{op == 3}
+L --FALSE--> O{op == 4}
+O --FALSE--> Q{{Operação inválida!}}
+Q --> R([FIM])
+I --TRUE--> M[res = num1 + num2]
+M --> S{{num1, + , num2, =, res}}
+J --TRUE--> K[res = num1 - num2]
+K --> T{{num1, - , num2, =, res}}
+L --TRUE--> N[res = num1 * num2]
+N --> U{{num1, * , num2, =, res}}
+O --TRUE--> P{num2 != 0}
+P --FALSE--> X{{Impossível dividir!}}
+P --TRUE--> Z[res = num1 / num2]
+Z --> V{{num1, / , num2, =, res}}
+X --> R
+S --> R
+T --> R
+U --> R
+V --> R
+```
+
+#### Pseudocódigo (1.0 ponto)
+
+```java
+ALGORITMO CalculadoraSimples
+DECLARE op: INTEIRO; num1,num2,res: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Operações válidas: 1(soma), 2(subtração), 3(multiplicação) e 4(divisão)"
+
+    // Insira seu comentário
+    ESCREVA "Digite uma operação:"
+
+    // Insira seu comentário
+    LEIA op
+
+    // Insira seu comentário
+    ESCREVA "Digite um número:"
+    LEIA num1
+
+    // Insira seu comentário
+    ESCREVA "Digite outro número:"
+    LEIA num2
+
+    // Insira seu comentário
+    ESCOLHA
+
+        // Insira seu comentário
+        CASO op == 1
+
+            // Insira seu comentário
+            res = num1 + num2
+
+            // Insira seu comentário
+            ESCREVA num1, "+", num2, "=", res
+
+        // Insira seu comentário
+        CASO op == 2
+
+            // Insira seu comentário
+            res = num1 - num2
+
+            // Insira seu comentário
+            ESCREVA num1, "-", num2, "=", res
+
+        // Insira seu comentário
+        CASO op == 3
+
+            // Insira seu comentário
+            res = num1 * num2
+
+            // Insira seu comentário
+            ESCREVA num1, "*", num2, "=", res
+
+        // Insira seu comentário
+        CASO op == 4
+
+            // Insira seu comentário
+            SE num2 != 0 ENTAO
+
+                // Insira seu comentário
+                res = num1 / num2
+
+                // Insira seu comentário
+                ESCREVA num1, "/", num2, "=", res
+
+            // Insira seu comentário
+            SENAO
+                ESCREVA "Impossível dividir!"
+
+            FIM_SE
+
+    // Insira seu comentário
+    SENAO
+        ESCREVA "Operação inválida!"
+
+    FIM_ESCOLHA
+
+FIM
+```
+
+#### Teste de mesa (0.5 ponto)
+
+| num1 | num2 | op | num2 != 0 | res | saída               | 
+| --   | --   | -- | --        | --  | --                  |
+| 1    | 0    | 1  |           | 1   | 1 + 0 = 1           |
+| 1    | 0    | 2  |           | 1   | 1 - 0 = 1           |
+| 1    | 0    | 3  |           | 0   | 1 * 0 = 0           |
+| 1    | 0    | 4  | False     |     | Impossível dividir! |
+| 1    | 2    | 4  | True      | 0.5 | 1 / 2 = 0,5         |
+| 1    | 2    | 5  |           |     | Operação inválida!  |
+
+### Exercício 04 (2.5 pontos)
+Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 -10 anos), juvenil A (11 - 13 anos), juvenil B (14 -17 anos) e adulto (maiores que 18 anos).
+
+#### Fluxograma (1.0 ponto)
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite a idade do aluno:"}}
+B --> C[/idade/]
+C --> D{idade >=5 <br>E <br>idade <= 7}
+D --FALSE--> F{idade >=8 <br>E <br>idade <= 10}
+F --FALSE--> G{idade >=11 <br>E <br>idade <= 13}
+G --FALSE--> H{idade >=14 <br>E <br>idade <= 17}
+H --FALSE--> I{idade >=18}
+I --FALSE--> P{{"Digite uma idade válida!"}}
+P --> Z([FIM])
+D --TRUE--> Q{{Infantial A}}
+F --TRUE--> K{{"Infantial B"}}
+G --TRUE--> L{{Juvenil A}}
+H --TRUE--> M{{Juvenil B}}
+I --TRUE--> N{{Adulto}}
+Q --> Z
+K --> Z
+L --> Z
+M --> Z
+N --> Z
+```
+
+#### Pseudocódigo (1.0 ponto)
 
 ```
-### Pseudocodigo
-```
-1  ALGORITMO categorizar_idade
-2  DECLARE idade: INTEIRO
-3  INICIO
-4    ESCREVA "Digite a idade: "
-5    LEIA idade
-6    
-7    SE idade >= 5 E idade <= 7 ENTÃO
-8        ESCREVA "Categoria: Infantil A"
-9    
-10   SENÃO SE idade <= 10 ENTÃO
-11       ESCREVA "Categoria: Infantil B"
-12   
-13   SENÃO SE idade <= 13 ENTÃO
-14       ESCREVA "Categoria: Juvenil A"
-15   
-16   SENÃO SE idade <= 17 ENTÃO
-17       ESCREVA "Categoria: Juvenil B"
-18   
-19   SENÃO
-20       ESCREVA "Categoria: Adulto"
-21   
-22   FIM_SE
-23   
-24   FIM
-```
-### Teste de mesa
-| Etapa | Descrição                                        | Dados/Resultado |
-|-------|--------------------------------------------------|------------------|
-| Início|                                                |                  |
-| Passo 1| Digite a idade:                                 | idade =          |
-| Passo 2| Verificar idade >= 5 E idade <= 7              |                  |
-|        |   - Verdadeiro:                                |                  |
-|        |     - Categoria: Infantil A                    |                  |
-| Passo 3| Verificar idade <= 10                          |                  |
-|        |   - Verdadeiro:                                |                  |
-|        |     - Categoria: Infantil B                    |                  |
-| Passo 4| Verificar idade <= 13                          |                  |
-|        |   - Falso:                                     |                  |
-| Passo 5| Verificar idade <= 17                          |                  |
-|        |   - Falso:                                     |                  |
-| Passo 6| Categoria: Adulto                               |                  |
-| Passo 7| Fim                                            |                  |
-```
-### COMENTARIO
-Este pseudocódigo descreve um algoritmo simples para categorizar a idade de uma pessoa em diferentes faixas etárias, de acordo com critérios estabelecidos para cada categoria.
+ALGORTIMO ClassificaCategoria
+DECLARE idade: INTEIRO
 
-O usuário é solicitado a inserir a idade, que é armazenada na variável 'idade'. Em seguida, o algoritmo verifica a idade inserida e, com base nessa idade, determina em qual categoria a pessoa se enquadra.
+INICIO
 
-Se a idade estiver entre 5 e 7 anos (inclusive), o algoritmo exibe a mensagem "Categoria: Infantil A". Se estiver entre 8 e 10 anos (inclusive), exibe "Categoria: Infantil B". Se estiver entre 11 e 13 anos (inclusive), exibe "Categoria: Juvenil A". Se estiver entre 14 e 17 anos (inclusive), exibe "Categoria: Juvenil B". Se a idade for maior que 17 anos, exibe "Categoria: Adulto".
+    // Insira seu comentário
+    ESCREVA "Digite a idade do aluno:"
 
-Este é um algoritmo eficiente e claro para classificar a idade em diferentes categorias, sendo útil em diversas situações, como em sistemas de inscrição esportiva, atividades recreativas ou eventos culturais que exigem categorização por faixa etária.
+    // Insira seu comentário
+    LEIA idade
+
+    // Insira seu comentário
+    ESCOLHA
+
+        // Insira seu comentário
+        CASO idade >=5 E idade <= 7
+
+            // Insira seu comentário
+            ESCREVA "Infantial A"
+
+        // Insira seu comentário
+        CASO idade >=8 E idade <= 10
+
+            // Insira seu comentário
+            ESCREVA "Infantial B"
+
+        // Insira seu comentário
+        CASO idade >=11 E idade <= 13
+
+            // Insira seu comentário
+            ESCREVA "Juvenil A"
+
+        // Insira seu comentário
+        CASO idade >=14 E idade <= 17
+
+            // Insira seu comentário
+            ESCREVA "Juvenil B"
+
+        // Insira seu comentário
+        CASO idade >=18
+
+            // Insira seu comentário
+            ESCREVA "Adulto"
+
+    // Insira seu comentário
+    SENAO
+
+        // Insira seu comentário
+        ESCREVA "Digite uma idade válida!"
+
+    FIM_ESCOLHA
+
+FIM
+```
+
+#### Teste de mesa (0.5 ponto)
+
+| idade | idade >=8 E idade <= 10 | idade >=11 E idade <= 13 | idade >=14 E idade <= 17 | idade >=18 | saída                       | 
+| --    | --                      | --                       | --                       | --         | --                          |
+| 4     | False                   | False                    | False                    | False      | Digite uma idade válida!    |
+| -4    | False                   | False                    | False                    | False      | Digite uma idade válida!    |
+| 8     | True                    | False                    | False                    | False      | Infantial A                 |
+| 11    | False                   | True                     | False                    | False      | Infantial B                 |
+| 17    | False                   | False                    | True                     | False      | Infantial C                 |
+| 21    | False                   | False                    | False                    | True       | Adulto                      |
