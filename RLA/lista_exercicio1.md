@@ -3,235 +3,273 @@
 **nome**: rinee alves 
 **disciplina**:Raciocínio logico algorítmico 
 
-## Lista 1, Exercício 1
+## Lista de exercícios 01
 
-### Fluxograma
+### Exercício 01 (1 ponto)
+Represente, em fluxograma e pseudocódigo, um algoritmo para determinar se um número inteiro e positivo é par ou impar.
+
+#### Fluxograma (0,25 ponto)
+
 ```mermaid
 flowchart TD
-A([INÍCIO]) --> B{{Digite um número}}
-B --> C[\número\]
-C --> D{número > 0}
-D --NÃO--> E[O número não é positivo!]
-D --SIM--> F[resto = número % 2]
+A([INICIO]) --> B{{Digite um número:}}
+B --> C[\numero\]
+C --> D{numero >= 0}
+D --FALSE--> E[O número não é positivo!]
+D --TRUE--> F[resto = numero % 2]
 E --> Z([FIM])
 F --> G{resto == 0}
-G --NÃO--> H{{o número é ímpar!}}
-G --SIM--> I{{o número é par!}}
+G --FALSE--> H{{O número é impar!}}
+G --TRUE--> I{{O número é par!}}
 H --> Z
 I --> Z
 ```
 
-### Pseudocódigo
+#### Pseudocódigo
+```java
+ALGORTIMO verifica_par_impar
+DECLARE numero, resto: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite um número: "
+    
+    // Insira seu comentário
+    LEIA numero
+    
+    // Insira seu comentário
+    SE numero >= 0 ENTAO
+
+        // Insira seu comentário
+        resto <- numero % 2
+
+        // Insira seu comentário
+        SE resto == 0 ENTAO
+            ESCREVA "O número é par!"
+
+        // Insira seu comentário
+        SENAO
+          ESCREVA "O número é impar!"
+
+        FIM_SE
+
+    // Insira seu comentário
+    SENAO             
+        ESCREVA "O número deve ser postivo!"
+
+    FIM_SE
+
+FIM
 ```
-1  ALGORÍTIMO verificapar_ímpar
-2  DECLARE número, resto NUMÉRICO
-3  ESCREVA "Digite um número: "
-4  LEIA número
-5  SE número > 0 ENTÃO
-6    resto = número % 2
-7    SE resto == 0 ENTÂO
-8      ESCREVA "0 número é par!"
-9    SENÃO
-10     ESCREVA "O número é ímpar!"
-11 SENÃO
-12  ESCREVA "O número não positivo!"
-13 FIM_ALGORITMO
-```
-#### Teste de mesa
+
+#### Tabela de testes (0,25 ponto)
 | numero | numero >= 0 | resto | resto == 0 | Saída |
 | -- | -- | -- | -- | -- | 
 | -1 | F |   |   | "O número deve ser postivo!" |
 | 0  | V | 0 | V | "O número é par!" |
 | 13 | V | 1 | F | "O número é impar!" |
 | 30 | V | 0 | V | "O número é par!" |
-### COMENTARIO
-Este pseudocódigo descreve um algoritmo para verificar se um número fornecido pelo usuário é par ou ímpar. 
 
-Primeiro, o usuário é solicitado a inserir um número, que é armazenado na variável 'número'. Em seguida, o algoritmo verifica se o número fornecido é maior que zero. Se for, o algoritmo continua a verificação. 
+## Exercício 02 (3 pontos)
+Represente, em fluxograma e pseudocódigo, um algoritmo para calcular o novo salário de um funcionário. 
+Sabe-se que os funcionários que recebem atualmente salário de até R$ 500 terão aumento de 20%; os demais terão aumento de 10%.
 
-Dentro do bloco condicional, o algoritmo calcula o resto da divisão do número por 2 (operador '%'). Se o resto for igual a zero, o número é considerado par e uma mensagem informando isso é exibida. Caso contrário, se o resto não for igual a zero, o número é considerado ímpar e uma mensagem informando isso é exibida. 
+#### Fluxograma (1.0 ponto)
 
-Se o número fornecido não for positivo, o algoritmo exibirá uma mensagem indicando que o número não é positivo. 
-
-Este é um algoritmo simples e direto para determinar se um número é par ou ímpar, e é útil em várias situações onde essa informação é necessária, como em lógica de programação e análise de dados. No entanto, o algoritmo poderia ser melhorado para tratar corretamente números negativos, caso desejado.
-### Exercicio 2
-
-### Fluxograma
 ```mermaid
 flowchart TD
-A([INÍCIO]) --> B{{Digite o salário do funcionário}}
-B --> C[\salario\]
-C --> D{salario <= 500}
-D -- SIM --> E{aumento = salario * 0.2}
-E --> F{{novo_salario = salario + aumento}}
-F --> G{{'Novo salário: ', novo_salario}}
+A([INICIO]) --> B{{"Digite seu salário atual:"}}
+B --> C[/sal_atual/]
+C --> D{sal_atual <= 500}
+D --FALSE--> E[sal_reaj = sal_atual * 1.1]
+D --TRUE--> F[sal_reaj = sal_atual * 1.2]
+E --> G{{O novo salário é, sal_reaj}}
+F --> G
 G --> H([FIM])
-D -- NÃO --> I{aumento = salario * 0.1}
-I --> J{{novo_salario = salario + aumento}}
-J --> G
-
 ```
-### Pseudocodigo
-```
-ALGORITMO calcular_novo_salario
-    DECLARE salario, aumento, novo_salario: REAL
 
-    ESCREVA "Digite o salário do funcionário: "
-    LEIA salario
+#### Pseudocódigo (1.0 ponto)
 
-    SE salario <= 500 ENTAO
-        aumento = salario * 0.2
+```java
+ALGORTIMO ReajusteSalario
+DECLARE sal_atual, sal_reaj: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite seu salário atual:"
+
+    // Insira seu comentário
+    LEIA sal_atual
+
+    // Insira seu comentário
+    SE sal_atual <= 500 ENTAO
+        sal_reaj = sal_atual * 1.2
+
+    // Insira seu comentário
     SENAO
-        aumento = salario * 0.1
+        sal_reaj = sal_atual * 1.1
+
     FIM_SE
 
-    novo_salario = salario + aumento
+    // Insira seu comentário
+    ESCREVA "O novo salário é R$", sal_reaj
 
-    ESCREVA "Novo salário: ", novo_salario
-FIM_ALGORITMO
-```
-### Teste de mesa
-| Etapa | Descrição                                        | Dados/Resultado |
-|-------|--------------------------------------------------|------------------|
-| Início|                                                |                  |
-| Passo 1| Digite o salário do funcionário:               | salario =        |
-| Passo 2| Verificar se salario <= 500                     |                  |
-|        |   - Verdadeiro:                                |                  |
-|        |     - aumento = salario * 0.2                  |                  |
-| Passo 3| Calcular novo salário:                         |                  |
-|        |     - novo_salario = salario + aumento         |                  |
-| Passo 4| Imprimir novo salário:                         | novo_salario     |
-| Passo 5| Fim                                            |                  |
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo para calcular o novo salário de um funcionário com base em seu salário atual. 
-
-Inicialmente, o usuário é solicitado a inserir o salário do funcionário, que é armazenado na variável 'salario'. Em seguida, o algoritmo verifica se o salário é menor ou igual a 500. Se for, aplica um aumento de 20% sobre o salário atual, armazenando-o na variável 'aumento'. Caso contrário, se o salário for maior que 500, aplica um aumento de 10%.
-
-Depois de calcular o aumento, o algoritmo soma esse aumento ao salário original para obter o novo salário, armazenando-o na variável 'novo_salario'. Por fim, o novo salário é exibido na tela.
-
-Este é um algoritmo simples e eficaz para calcular o novo salário de um funcionário com base em uma política de aumento salarial pré-definida. Ele pode ser facilmente adaptado para incluir outras políticas de aumento salarial ou condições específicas da empresa.
-### Exercicio 3
-
-### Fluxograma 
-```mermaid
-flowchart
-    A([Início]) --> B[Digite o primeiro número - a]
-    B --> C(Digite o operador: +, -, *, /)
-    C --> D[Digite o segundo número - b]
-    D --> E{Operador é válido?}
-    E -->|Sim| F[Realizar operação]
-    F --> H[Imprimir resultado]
-    H --> I([Fim])
-```
-#### Pseudocódigo 
-
-
-Algoritmo Calculadora
-```
-Início
-    Escrever "Digite o primeiro número - a:"
-    Ler a
-    Escrever "Digite o operador: +, -, *, /:"
-    Ler operador
-    Escrever "Digite o segundo número - b:"
-    Ler b
-    
-    Se operador é válido Então
-        Se operador = "+" Então
-            resultado = a + b
-        Senão Se operador = "-" Então
-            resultado = a - b
-        Senão Se operador = "*" Então
-            resultado = a * b
-        Senão Se operador = "/" E b != 0 Então
-            resultado = a / b
-        Senão
-            Escrever "Operador inválido"
-            Retornar
-        Fim Se
-    Senão
-        Escrever "Operador inválido"
-        Retornar
-    Fim Se
-    
-    Escrever "O resultado é:", resultado
-Fim
+FIM
 ```
 
-#### Teste de mesa 
+#### Tabela de testes (1.0 ponto)
 
-| Etapa | Descrição                              | Dados/Resultado  |
-|-------|----------------------------------------|------------------|
-| Início|                                        |                  |
-| Passo 1| Digite o primeiro número - a:         | a = 10           |
-| Passo 2| Digite o operador: +, -, *, /:        |  +                |
-| Passo 3| Digite o segundo número - b:          | b = 5            |
-| Passo 4| Verificar operador válido:            | Sim              |
-| Passo 5| Realizar operação:                    | resultado = 15   |
-| Passo 6| Imprimir resultado:                   | 15               |
-| Passo 7| Fim                                   |                  |
+| sal_atual | sal_atual >= 500 |sal_reaj       | saída                   | 
+| --        | --               | --            | --                      | 
+| 400       | False            | 400*1.2 = 480 | O novo salário é R$ 480 |
+| 500       | True             | 500*1.2 = 600 | O novo salário é R$ 600 |
+| 600       | True             | 600*1.1 = 660 | O novo salário é R$ 660 |
 
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo simples para realizar operações aritméticas básicas entre dois números fornecidos pelo usuário. 
+## Exercício 03 (3 pontos)
+Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média aritmética entre duas notas de um aluno e mostrar sua situação, que pode ser aprovado ou reprovado.
 
-Primeiro, o usuário é solicitado a fornecer o primeiro número ('a'), o operador desejado e o segundo número ('b'). 
+#### Fluxograma (1 ponto)
 
-O algoritmo então verifica se o operador inserido pelo usuário é válido. Se for, o algoritmo executa a operação correspondente (adição, subtração, multiplicação ou divisão) e armazena o resultado na variável 'resultado'. 
-
-Se o operador não for válido, ou se o usuário tentar dividir por zero, uma mensagem de erro é exibida e o algoritmo é encerrado. 
-
-Finalmente, o resultado da operação é exibido na tela.
-
-Este é um algoritmo simples e útil para realizar cálculos básicos entre dois números, com validação de entrada para garantir que as operações sejam executadas corretamente.
-### Exercicio 4
-
-### Fluxograma
 ```mermaid
 flowchart TD
-A([INÍCIO]) --> B{{Digite a idade do candidato}}
-B --> C[\idade\]
-C --> D{{Verificar se a idade é maior ou igual a 18}}
-D -- SIM --> E{{'Pode tirar CNH'}}
-E --> F([FIM])
-D -- NÃO --> G{{Calcular quantos anos faltam para completar 18}}
-G --> H[anos_faltantes = 18 - idade]
-H --> I{{'Faltam ', anos_faltantes, ' anos para tirar CNH'}}
-I --> F
+A([INICIO]) --> B{{"Digite a nota 1:"}}
+B --> C[/nota1/]
+C --> D{{"Digite a nota 2:"}}
+D --> E[/nota2/]
+E --> F{nota1 >= 0<br> OU <br>nota2 >= 0}  
+F --FALSE--> K{{"A nota deve ser maior que zero!"}}
+K --> L([FIM])
+F --TRUE--> G["media = (nota1 + nota2)/2"]
+G --> H{media >= 7}
+H --FALSE--> I{{"O aluno está reprovado!"}}
+H --TRUE--> J{{"O aluno está aprovado!"}}
+I --> L
+J --> L
 ```
-### Pseudocodigo
+
+#### Pseudocódigo (1 ponto)
+
+```java
+ALGORTIMO SituacaoAluno
+DECLARE nota1, nota2, media: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite a nota 1:"
+
+    // Insira seu comentário
+    LEIA nota1
+
+    // Insira seu comentário
+    ESCREVA "Digite a nota 2:"
+
+    // Insira seu comentário
+    LEIA nota2
+
+    // Insira seu comentário
+    SE nota1 >= 0 E nota2 >= 0 ENTAO
+
+        // Insira seu comentário
+        media =  (nota1 + nota2)/2
+
+        // Insira seu comentário
+        SE media >= 7 ENTAO
+            ESCREVA "O aluno está aprovado!"
+
+        // Insira seu comentário
+        SENAO
+            "O aluno está reprovado!"
+
+        FIM_SE
+
+    // Insira seu comentário
+    SENAO
+        ESCREVA "A nota deve ser maior que zero!"
+
+    FIM_SE
+
+FIM
 ```
-1  ALGORITMO verificar_idade_para_cnh
-2  DECLARE idade, anos_faltantes: INTEIRO
-3  INICIO
-4    ESCREVA "Digite a idade do candidato: "
-5    LEIA idade
-6    
-7    SE idade >= 18 ENTÃO
-8        ESCREVA "Pode tirar CNH"
-9    SENÃO
-10       anos_faltantes = 18 - idade
-11       ESCREVA "Faltam ", anos_faltantes, " anos para tirar CNH"
-12   FIM_SE
-13   
-14   FIM
 
+#### Tabela de testes (1 ponto)
+
+| nota1 | nota2 | nota1 >= 0 E nota2 >= 0 | media        | saĩda | 
+| --    | --    | --                      | --           | --    | 
+| -1    | 0     | False                   |              | A nota deve ser maior que zero! | 
+| 0     | 0     | True                    | (0+0)/2 = 0  | O aluno está reprovado!|
+| 4     | 8     | True                    | (4+8)/2 = 6  | O aluno está reprovado!|
+| 4     | 10    | True                    | (4+10)/2 = 7 | O aluno está aprovado!|
+
+## Exercício 04 (3 pontos)
+Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. 
+Caso não atender a restrição de idade, calcular quantos anos faltam para o candidato estar apto.
+
+#### Fluxograma (1.0 ponto)
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite a sua idade:"}}
+B --> C[/idade/]
+C --> D{idade < 0}
+D --FALSE--> E{idade >= 18}
+E --FALSE--> F[anos_apto = 18 - idade]
+F --> G{{Faltam, anos_apto, anos para o candidato estar apto!}}
+G --> H([FIM])
+E --TRUE--> I{{"O candidato está apto a tirar a CNH!"}}
+I --> H
+D --TRUE--> J{{"A idade deve ser maior que zero!"}}
+J --> H 
 ```
-#### Teste de mesa 
 
-| Etapa | Descrição                              | Dados/Resultado |
-|-------|----------------------------------------|------------------|
-| Início|                                        |                  |
-| Passo 1| Digite a idade:                       | idade = 12       |
-| Passo 2| Verificar idade entre 5 e 7 anos?     | Sim              |
-| Passo 3| Verificar idade entre 8 e 10 anos?    | Não              |
-| Passo 4| Verificar idade entre 11 e 13 anos?   | Sim              |
-| Passo 5| Verificar idade entre 14 e 17 anos?   | Não              |
-| Passo 6| Classificar como Juvenil A            |                  |
-| Passo 7| Fim                                   |                  |
+#### Pseudocódigo (1.0 ponto)
 
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo simples para verificar se um candidato tem a idade mínima necessária para tirar a Carteira Nacional de Habilitação (CNH) no Brasil, que é de 18 anos.
+```java
+ALGORTIMO AptoCNH
+DECLARE idade, anos_apto: INTEIRO
 
-Inicialmente, o usuário é solicitado a inserir a idade do candidato. Em seguida, o algoritmo verifica se a idade fornecida é maior ou igual a 18. Se for, exibe uma mensagem indicando que o candidato pode tirar a CNH. Caso contrário, calcula quantos anos faltam para o candidato atingir a idade mínima necessária (18 anos) e exibe uma mensagem informando os anos faltantes.
+INICIO
 
-Este é um algoritmo simples e direto para realizar essa verificação, sendo útil em sistemas de controle de acesso ou em formulários de solicitação de serviços relacionados à CNH.
+    // Insira seu comentário
+    ESCREVA ""Digite a sua idade:"
+
+    // Insira seu comentário
+    LEIA idade
+
+    // Insira seu comentário
+    SE idade < 0 ENTAO
+        ESCREVA "A idade deve ser maior que zero!"
+
+    // Insira seu comentário
+    SENAO
+
+        // Insira seu comentário
+        SE idade >= 18 ENTAO
+            ESCREVA "O candidato está apto a tirar a CNH!"
+
+        // Insira seu comentário
+        SENAO
+
+            // Insira seu comentário
+            anos_apto <- 18 - idade
+
+            // Insira seu comentário
+            ESCREVA "Faltam", anos_apto, "ano(s) para o candidato estar apto!"
+
+        FIM_SE
+
+    FIM_SE
+
+FIM
+```
+
+#### Tabela de testes (1.0 ponto)
+
+| idade | idade < 0 | idade >= 18 | anos_apto | saída                                         | 
+| --    | --        | --          | --        | --                                            | 
+| -1    | True      |             |           |                                               |
+| 0     | False     | False       | 18-0 = 18 | Faltam 18 ano(s) para o candidato estar apto! |
+| 17    | False     | False       | 18-17 = 1 | Faltam 1 ano(s) para o candidato estar apto!  |
+| 18    | False     | True        |           | O candidato está apto a tirar a CNH!          |
