@@ -48,28 +48,28 @@ DECLARE a,b,axu: REAL
 
 INICIO
 
-    // Insira seu comentário
+    // variavel a,b como dado de entrada 
     ESCREVA "Digite o valor da a:"
 
-    // Insira seu comentário
+    // variavel leia comceça com a 
     LEIA a
 
-    // Insira seu comentário
+    // variavel escreva o valo.r de b 
     ESCREVA "Digite o valor da b:"
 
-    // Insira seu comentário
+    // variavel leia b 
     LEIA b
 
-    // Insira seu comentário
+    // loop condicional 
     aux <- a 
 
-    // Insira seu comentário
+    // atribuir B a A
     a <- b
 
-    // Insira seu comentário
+    // indica que o valor da variável "aux" está sendo atribuído à variável "b"
     b <- aux
 
-    // Insira seu comentário
+    // Aqui, "a=" e "b=" são strings que precedem os valores das variáveis "a" e "b"
     ESCREVA "a=", a
     ESCREVA "b=", b
 
@@ -144,35 +144,35 @@ DECLARE n, cont, nota, i: INTEIRO
 
 INICIO
 
-    // Insira seu comentário
+    // solicitar uma entrada de dados ao usuário.
     ESCREVA "Digite a quantidade de notas dos alunos:"
 
-    // Insira seu comentário
+    // atribuí-lo à variável "n" e entrada de dados 
     LEIA n
 
-    // Insira seu comentário
+    //  "cont" é uma variável que está sendo inicializada com o valor zero
     cont = 0 
 
-    // Insira seu comentário
+    //  loop que itera de 1 até o valor de "n". Durante cada iteração do loop, a variável "i" assume um valor diferente, começando de 1 e indo até "n".
     PARA i DE 1 ATE n FAÇA
 
-        // Insira seu comentário
+        // solicitar ao usuário que insira a nota de um aluno específico.
         ESCREVA "Digite a nota do aluno", i, ":"
 
-        // Insira seu comentário
+        // uma entrada de dados fornecida pelo usuário e armazená-la na variável "nota".
         LEIA nota
 
-        // Insira seu comentário
+        //  representa uma estrutura condicional comum 
         SE nota >= 50 E nota <= 100 ENTAO
 
-            // Insira seu comentário
+            //  usada para incrementar o valor da variável "cont" em 1 unidade.
             cont = cont + 1 
 
         FIM_SE
 
     FIM_PARA
 
-    // Insira seu comentário
+    // cont" é utilizado para exibir o número de alunos que foram aprovados em um determinado contexto. 
     ESCREVA "O numero de alunos aprovados e:", cont
 
 FIM
@@ -240,45 +240,44 @@ DECLARE n,i,soma: INTEIRO
 
 INICIO
 
-    // Insira seu comentário
+    // especifica que "n" deve ser maior ou igual a zero, fornecendo uma restrição importante para o usuário seguir. 
     ESCREVA "Digite a quantidade de números<br> (n >= 0):"
     LEIA n
 
-    // Insira seu comentário
+    // é uma estrutura condicional que verifica se o valor da variável "n" é maior ou igual a zero. 
     SE n >=0 ENTAO
 
-        // Insira seu comentário
+        //  inicializa a variável "soma" com o valor zero. 
         soma <- 0
 
-        // Insira seu comentário
+        //  em loops, para atualizar o valor de uma variável de iteração.
         i <- i
 
-        // Insira seu comentário
+        // . Ele define que um bloco de código será executado repetidamente enquanto a condição "i <= n" for verdadeira.
         ENQUANTO i <= n FAÇA
 
-            // Insira seu comentário
+            // é uma instrução que indica ao usuário para inserir um número através da entrada de dados.
             ESCREVA "Digite um número:"
 
-            // Insira seu comentário
+            // é utilizado para capturar um valor inserido pelo usuário através da entrada padrão (como o teclado) e armazená-lo na variável "num".
             LEIA num 
 
-            // Insira seu comentário
+            //  é utilizado para acumular valores em uma variável chamada "soma". 
             soma <- soma + num
 
-            // Insira seu comentário
+            // aumentar o valor da variável "i" em uma unidade. 
             i <- i + 1
 
         FIM_ENQUANTO
 
-    // Insira seu comentário
+    //usada para fornecer feedback ao usuário quando uma condição específica não é satisfeita. 
     SENAO
         "O valor deve ser maior ou igual a zero!"
 
     FIM_SE
 
-    // Insira seu comentário
-    ESCREVA "A soma dos numeros é , soma"
-
+    
+   
 FIM
 ```
 
@@ -335,33 +334,33 @@ DECLARE n,numerador,denominador: INTEIRO; termo, S: REAL
 
 INICIO
 
-    // Insira seu comentário
+    // é utilizado para solicitar ao usuário que insira o número de termos desejados para uma série,
     ESCREVA "Digite o número de termos da série S:"
 
-    // Insira seu comentário
+    //é utilizado para capturar um valor inserido pelo usuário através da entrada padrão (como o teclado) e armazená-lo na variável "n"
     LEIA n
 
-    // Insira seu comentário
+    //  Inicializar "S" como zero é útil para garantir que a variável esteja pronta para acumular valores ou para reiniciar o cálculo de uma nova série de operações.
     S <- 0
 
-    // Insira seu comentário
+    //  estabelece um loop que itera sobre os valores de "i" de 0 até "n-1", com um incremento de 1 a cada iteração. 
     PARA i de 0 ATÉ n-1 PASSO 1 FAÇA
 
-        // Insira seu comentário
+        //  calcula o valor do numerador em uma operação ou equação. 
         numerador = 2 * i + 1
 
-        // Insira seu comentário
+        // calcula o valor do denominador em uma operação ou equação.
         denominador <- 2 * i + 2
 
-        // Insira seu comentário
+        //  representam os valores do numerador e do denominador, respectivamente, que foram calculados previamente para um determinado índice "i".
         termo = numerador / denominador
 
-        // Insira seu comentário
+        //  é uma forma abreviada de adicionar o valor do termo atual à variável acumuladora "S".
         S += termo
 
     FIM_PARA
 
-    // Insira seu comentário
+    // é usado para exibir a soma da série S ao usuário. Após calcular a soma dos termos da série e armazená-la na variável S, este comando imprime uma mensagem informativa na tela, seguida pelo valor atual da soma (S).
     ESCREVA "Soma da série S é ", S
 
 FIM
@@ -414,30 +413,30 @@ DECLARE n: INTEIRO
 
 INICIO
 
-    // Insira seu comentário
+    //  é uma instrução que solicita ao usuário que insira um número inteiro não-negativo através da entrada padrão
     ESCREVA "Digite um numero inteiro nao-negativo:"
 
-    // Insira seu comentário
+    //  é usado para capturar a entrada do usuário e atribuí-la à variável "n". 
     LEIA n
 
-    // Insira seu comentário
+    // introduz uma estrutura condicional na qual o programa avalia se o valor de "n" é maior ou igual a zero. 
     SE n >= 0 ENTAO
 
-        // Insira seu comentário
+        // "fator" provavelmente será usado para armazenar ou calcular um fator de multiplicação, exponenciação ou outro tipo de operação matemática
         fator <- 1
 
-        // Insira seu comentário
+        // é usado para executar um bloco de código repetidamente enquanto "i" está dentro do intervalo especificado. 
         PARA i DE 1 ATÉ n PASSO 1 FAÇA
 
-            // Insira seu comentário
+            // atualiza o valor da variável "fator" multiplicando seu valor pelo valor da variável "i". 
             fator <- fator * i        // fator *= i
 
         FIM_PARA
 
-        // Insira seu comentário
+        //  é usado para exibir a mensagem "O fatorial de [valor de n] é: [valor do fatorial]" para o usuário
         ESCREVA "O fatorial de, n, é:", fator
 
-    // Insira seu comentário
+    // é uma estrutura condicional que executa uma ação caso a condição anterior não seja atendida. 
     SENAO
         ESCREVA "O valor deve ser maior ou igual a zero!"
     FIM_SE
@@ -493,31 +492,31 @@ DECLARE n, a, b, termo_atual: INTEIRO
 
 INICIO
 
-    // Insira seu comentário
+    // "Número de termos da série Fibonacci:"" é utilizado para exibir uma mensagem informativa solicitando ao usuário que insira o número de termos desejados para a série Fibonacci.
     ESCREVA "Número de termos da série Fibonacci:"
 
-    // Insira seu comentário
+    // Após o usuário inserir o número desejado de termos para a série Fibonacci, o programa lê essa entrada e a atribui à variável "n" para uso posterior. 
     LEIA n
 
-    // Insira seu comentário
+    //  Neste caso, "a" pode representar um contador, um acumulador ou qualquer outra variável que requer uma inicialização antes de seu uso. 
     a <- 0
 
-    // Insira seu comentário
+    //b" pode representar uma variável de contador, um acumulador ou qualquer outra variável que requer uma inicialização antes de seu uso.
     b <- 1
 
-    // Insira seu comentário
+    //  é usado para iniciar um loop que iterará de 1 até o valor de "n". 
     PARA i DE 1 ATE n FAÇA
 
-        // Insira seu comentário
+        // é usado para exibir o valor da variável "a" na saída do programa. 
         ESCREVA a
 
-        // Insira seu comentário
+        // Este comando é essencial para realizar cálculos e atualizar variáveis no decorrer da execução do programa.
         termo_atual <- a + b
 
-        // Insira seu comentário
+        // usado para atribuir o valor da variável "b" à variável "a".
         a <- b
 
-        // Insira seu comentário
+        // é um comando que define o valor da variável "b" como sendo igual ao valor do termo atual. 
         b <- termo_atual
 
     FIM_PARA
@@ -575,35 +574,35 @@ DECLARE num, num_inv, digito: INTEIRO
 
 INICIO
 
-    // Insira seu comentário
+    // exibe uma mensagem para o usuário, solicitando que ele insira um número a ser invertido
     ESCREVA "Digite o número a ser invertido:"
     LEIA num
 
-    // Insira seu comentário
+    //introduz uma estrutura condicional que verifica se o número inserido pelo usuário é menor que zero
     SE num < 0 ENTAO
 
-        // Insira seu comentário
+        // é usado para informar ao usuário que o número inserido deve ser positivo.
         ESCREVA "O número deve ser positivo!"
 
-    // Insira seu comentário
+    // Esta parte do código será executada quando o número inserido for positivo ou zero.
     SENAO
 
-        // Insira seu comentário
+        //  indicando uma preparação para a operação de inversão que provavelmente virá em seguida no código.
         num_inv <- 0
 
-        // Insira seu comentário
+        // introduz um loop que continuará executando o bloco de código abaixo dele enquanto a condição "num > 0" for verdadeira.
         ENQUANTO num > 0 FAÇA
 
-            // Insira seu comentário
+            // extrai o último dígito de um número inteiro.
             digito <- num % 10
 
-            // Insira seu comentário
+            //  é utilizado para construir o número invertido, acumulando os dígitos invertidos obtidos em cada iteração do loop.
             num_inv <- (num_inv * 10) + digito
 
-            // Insira seu comentário
+            //é utilizado para remover o último dígito do número "num", dividindo-o por 10 e atribuindo o resultado de volta à variável "num".
             num <- num // 10
 
-        // Insira seu comentário
+        //  usado para exibir o número invertido na saída do programa. 
         ESCREVA "Número invertido:", num_inv
 
     FIM_SE
