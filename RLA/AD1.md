@@ -12,175 +12,611 @@
 **1a chamada (Sim/Não):** sim <br>
 **2a chamada (Sim/Não):** nao
 
-### Exercicio 1
+## Lista de questões
+
+### Questão 1 - Troca dos valores de duas variáveis (1 ponto)
+
+Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os valores atribuídos a elas.
+
+#### Descrição geral do algoritmo
+
+1. Guardar o valor original da variável $a$ em uma variável auxiliar $aux$;
+2. Atribuir à variável $a$ o valor original da variável $b$;
+3. Atribuir à variável $b$ o valor original da variável $a$, que está armazenado na variável auxiliar $aux$.
+4. Exibir os novos valores de $a$ e $b$.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite o valor da a:"}}
+B --> C[\a\]
+C --> D{{"Digite o valor da b:"}}
+D --> E[\b\]
+E --> F[aux = a]
+F --> G[a = b]
+G --> H[b = aux]
+H --> I{{"a =", a}}
+I --> J{{"b =", b}}
 ```
-1  ALGORITMO troca_valores
-2  DECLARE a, b, aux: INTEIRO
-3  INICIO
-4    ESCREVA "Digite o valor da a: "
-5    LEIA a
-6    ESCREVA "Digite o valor da b: "
-7    LEIA b
-8    aux = a
-9    a = b
-10   b = aux
-11   ESCREVA "a =", a
-12   ESCREVA "b =", b
-13 FIM
+
+#### Pseudocódigo (1 ponto)
+
+```java
+ALGORTIMO TrocaValores
+DECLARE a,b,axu: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite o valor da a:"
+
+    // Insira seu comentário
+    LEIA a
+
+    // Insira seu comentário
+    ESCREVA "Digite o valor da b:"
+
+    // Insira seu comentário
+    LEIA b
+
+    // Insira seu comentário
+    aux <- a 
+
+    // Insira seu comentário
+    a <- b
+
+    // Insira seu comentário
+    b <- aux
+
+    // Insira seu comentário
+    ESCREVA "a=", a
+    ESCREVA "b=", b
+
+FIM
 ```
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo simples para trocar os valores de duas variáveis, 'a' e 'b', utilizando uma variável auxiliar 'aux'. Inicialmente, o usuário é solicitado a fornecer os valores de 'a' e 'b'. Em seguida, os valores são trocados utilizando a variável auxiliar para armazenar temporariamente um dos valores. Por fim, os novos valores de 'a' e 'b' são exibidos. Este é um método eficaz e comum para realizar a troca de valores entre duas variáveis em muitas linguagens de programação.
 
-### Exercicio 2
+#### Tabela de testes
+
+| a  | b  | aux | a  | b  | saída 1 | saída 2 | 
+| -- | -- | --  | -- | -- | --      | --      | 
+| 0  | 1  | 0   | 1  | 0  | a = 1   | b = 0   |
+
+### Questão 2 - Contagem (1 ponto)
+
+Dado um conjunto $n$ de notas de alunos em um exame, implemente e teste um algoritmo para fazer uma contagem $cont$ do número de alunos que foram aprovados no exame. 
+Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de 0 a 100).
+
+#### Descrição geral do algoritmo
+
+1. Obter o número de notas $n$ a serem processadas;
+2. Inicializar a contagem $cont$ com zero;
+3. Enquanto houver notas a serem processadas, fazer repetidamente:
+    - obter a próxima nota;
+    - se a nota for suficiente para passar no exame ($n ≥ 50$) então adicionar 1 (um) à contagem $cont$;
+4. Exibir a contagem $cont$ (número total de aprovações).
+
+#### Fluxograma 01
+Fluxograma conforme descrição do algoritmo acima, usando o loop ENQUANTO.
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o número de alunos: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[\i = 1\]
+E --> F{i <= n}
+F --FALSE--> W{{Número de alunos aprovados: cont}}
+W --> Z([FIM])
+F --TRUE--> G{{Digite a nota do aluno, i}}
+G --> H[\nota\]
+H --> I{"nota >= 50 <br>E <br>nota <=100"}
+I --TRUE--> J[\cont =+ 1\]
+I --FALSE--> K[\i =+ 1\]
+J --> K
+K --LOOP--> F
 ```
-1  ALGORITMO contagem_aprovados
-2  DECLARE n, cont, i, nota: INTEIRO
-3  INICIO
-4    ESCREVA "Digite o número de alunos: "
-5    LEIA n
-6    cont = 0
-7    i = 1
-8    ENQUANTO i <= n FAÇA
-9      ESCREVA "Digite a nota do aluno ", i, ": "
-10     LEIA nota
-11     SE nota >= 50 E nota <= 100 ENTAO
-12       cont = cont + 1
-13     FIM_SE
-14     i = i + 1
-15   FIM_ENQUANTO
-16   ESCREVA "Número de alunos aprovados: ", cont
-17 FIM
+
+#### Fluxograma 02
+Fluxograma opcional usando o loop PARA.
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o número de notas: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[[i=1 ATE n PASSO 1]]
+E --"i=1,2...,n"--> F{{Digite nota, i}}
+E --"i > n"--> K{{Número de alunos aprovados: , cont}}
+K --> L([FIM])
+F --> G[\nota\]
+G --> H{"nota >= 50 <br>E <br>nota <=100"}
+H --FALSE/LOOP--> E
+H --TRUE--> J[\cont =+ 1\]
+J --LOOP--> E
+```
+
+#### Pseudocódigo 01 (1 ponto)
+
+```java
+ALGORTIMO ContaAprovacoes
+DECLARE n, cont, nota, i: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite a quantidade de notas dos alunos:"
+
+    // Insira seu comentário
+    LEIA n
+
+    // Insira seu comentário
+    cont = 0 
+
+    // Insira seu comentário
+    PARA i DE 1 ATE n FAÇA
+
+        // Insira seu comentário
+        ESCREVA "Digite a nota do aluno", i, ":"
+
+        // Insira seu comentário
+        LEIA nota
+
+        // Insira seu comentário
+        SE nota >= 50 E nota <= 100 ENTAO
+
+            // Insira seu comentário
+            cont = cont + 1 
+
+        FIM_SE
+
+    FIM_PARA
+
+    // Insira seu comentário
+    ESCREVA "O numero de alunos aprovados e:", cont
+
+FIM
+```
+
+#### Tabela de testes 01
+Tabela de testes referente ao algoritmo usando o loop ENQUANTO.
+
+| it | n  | i  | cont | i<=n  | nota, i | nota | nota_valida | cont+1 | i+1 | saída        | 
+| -- | -- | -- | --   | --    | --      | --   | --          | --     | --  | --           |
+| 1  | 3  | 1  |  0   | True  | nota 1  | 60   | True        | 1      | 2   |              |
+| 2  | 3  | 2  |  1   | True  | nota 2  | 40   | False       | 1      | 3   |              |
+| 3  | 3  | 3  |  1   | True  | nota 3  | 90   | True        | 2      | 4   |              |
+| 4  | 3  | 4  |  2   | False |         |      |             |        |     | Aprovados: 2 |
+
+#### Tabela de testes 02
+Tabela de testes referente ao algoritmo usando o loop PARA.
+
+| it | n  | cont | i  | nota, i | nota | nota_valida | cont+1 | saída        | 
+| -- | -- | --   | -- | --      | --   | --          | --     | --           |
+| 1  | 3  | 0    | 1  | nota 1  | 60   | True        | 1      |              |
+| 2  | 3  | 1    | 2  | nota 2  | 40   | False       | 1      |              |
+| 3  | 3  | 1    | 3  | nota 3  | 90   | True        | 2      | Aprovados: 2 |
+
+### Questão 3 - Soma de um conjunto de números (1 ponto)
+
+Dado um conjunto de $n$ números, implemente e teste um algoritmo para calcular a soma desses números. <br>
+Aceite apenas $n$ maior ou igual a zero.
+
+#### Descrição geral do algoritmo
+
+1. Obter a quantidade de números $n$ a serem somados.
+2. Inicializar a variável $soma$ com 0 (zero).
+3. Enquanto menos do que $n$ números tiverem sido somados, fazer repetidamente:
+    - obter o próximo número $i$;
+    - calcular a soma atual, adicionando o número $i$ obtido à soma mais recente;
+4. Exibir a soma dos $n$ números
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite a quantidade de números<br> (n >= 0):"}}
+B --> C[\n\]
+C --> D{n >= 0}
+D --FALSE-->N{{"O valor deve ser maior ou igual a zero!"}}
+N --> M([FIM])
+D --TRUE--> E[/soma = 0/]
+E --> F[i = 1]
+F --> G{i <= n}
+G --FALSE--> L{{"A soma dos numeros é , soma"}}
+L --> M
+G --TRUE--> H{{Digite um número: }}
+H --> I[\num\]
+I --> J[soma =+ num]
+J --> K[i =+ 1]
+K --LOOP--> G
+```
+
+#### Pseudocódigo (1 ponto)
+
+```java
+Algoritmo SomaNumeros
+DECLARE n,i,soma: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite a quantidade de números<br> (n >= 0):"
+    LEIA n
+
+    // Insira seu comentário
+    SE n >=0 ENTAO
+
+        // Insira seu comentário
+        soma <- 0
+
+        // Insira seu comentário
+        i <- i
+
+        // Insira seu comentário
+        ENQUANTO i <= n FAÇA
+
+            // Insira seu comentário
+            ESCREVA "Digite um número:"
+
+            // Insira seu comentário
+            LEIA num 
+
+            // Insira seu comentário
+            soma <- soma + num
+
+            // Insira seu comentário
+            i <- i + 1
+
+        FIM_ENQUANTO
+
+    // Insira seu comentário
+    SENAO
+        "O valor deve ser maior ou igual a zero!"
+
+    FIM_SE
+
+    // Insira seu comentário
+    ESCREVA "A soma dos numeros é , soma"
+
+FIM
+```
+
+#### Tabela de testes
+
+| it | n  | n >= 0 | soma | i  | i <= n | num | soma =+ num  | saída                   |
+| -- | -- | --     | --   | -- | --     | --  | --           | --                      |
+|    | -3 | False  |      |    |        |     |              | O valor deve ser ...    |
+| 1  | 0  | True   | 0    | 1  | False  |     |              | A soma dos números é 0  |
+| 1  | 3  | True   | 0    | 1  | True   | 5   | 0 + 5 = 5    |                         |
+| 2  | 3  | True   | 5    | 2  | True   | 10  | 5 + 10 = 15  |                         |
+| 3  | 3  | True   | 15   | 3  | True   | 20  | 15 + 20 = 35 |                         |
+| 4  | 3  | True   | 35   | 4  | False  |     |              | A soma dos números é 35 |
+
+### Questão 4 - Cálculo de uma série (1 ponto)
+
+Dado um conjunto de $n$ termos da série, implemente e teste um algoritmo para calcular o valor de S, conforme definido abaixo:
+
+$$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
+
+#### Descrição geral do algoritmo
+
+1. Obter o número de termos $n$;
+2. Inicializar a variável $S$ com 0 (zero).
+3. Iterar o valor de $n$ na variável $i$ iniciando com 0 (zero), de acordo com as instruções abaixo:
+    - calcular o numerador na variável $numerador$;
+    - calcular o denominador  na variável $denominador$;;
+    - calcular o termo da série na variável $termo$, onde $termo = numerador/denominador$;
+    - adicionar esse termo à variável $S$.
+4. Exibir o valor da série $S$.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite o número de termos da série S:"}}
+B --> C[/n/]
+C --> D[S = 0]
+D --> E[[i=0 ATE n-1 PASSO 1]]
+E --"i > n-1"--> J{{"Soma da série S é ", S}}
+J --> K([FIM])
+E --"i=0,1,2,..,n-1"--> F[numerador = 2 * i + 1]
+F --> G[denominador = 2 * i + 2]
+G --> H[termo = numerador / denominador]
+H --> I[S += termo]
+I --LOOP--> E
+```
+
+#### Pseudocódigo (1 ponto)
+
+```java
+Algoritmo SomaSerie
+DECLARE n,numerador,denominador: INTEIRO; termo, S: REAL
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite o número de termos da série S:"
+
+    // Insira seu comentário
+    LEIA n
+
+    // Insira seu comentário
+    S <- 0
+
+    // Insira seu comentário
+    PARA i de 0 ATÉ n-1 PASSO 1 FAÇA
+
+        // Insira seu comentário
+        numerador = 2 * i + 1
+
+        // Insira seu comentário
+        denominador <- 2 * i + 2
+
+        // Insira seu comentário
+        termo = numerador / denominador
+
+        // Insira seu comentário
+        S += termo
+
+    FIM_PARA
+
+    // Insira seu comentário
+    ESCREVA "Soma da série S é ", S
+
+FIM
+```
+
+#### Tabela de testes (0.25 ponto)
+
+| it | n  | S  | i | numerador | denominador | termo | S += termo     | saída                  |
+| -- | -- | -- |-- | --        | --          | --    | --             | --                     |
+|    | 0  | 0  |   |           |             |       |                |                        |
+| 1  | 4  | 0  | 0 | 2*0+1 = 1 | 2*0+2 = 2   | 1/2   | 0+1/2 = 1/2    |                        |
+| 2  | 4  | 0  | 1 | 2*1+1 = 1 | 2*1+2 = 2   | 3/4   | 1/2+3/4 = 1.25 |                        |
+| 3  | 4  | 0  | 2 | 2*2+1 = 1 | 2*2+2 = 2   | 5/6   | 0+1/2 = 2.08   |                        |
+| 4  | 4  | 0  | 3 | 2*3+1 = 1 | 2*3+2 = 2   | 7/8   | 0+1/2 = 2.96   | Soma da série S é 2.96 |
+
+### Questão 5 - Cálculo fatorial (2 pontos)
+
+Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de $n$ (escrito como $n!$), onde $n ≥ 0$.
+
+#### Descrição geral do algoritmo
+
+1. Obter o número $n$, onde $n \geq 0$;
+2. Inicializar a variável $fator$ com 1 (um) para armazenar o resultado do cálculo do fatorial;
+3. Iterar o valor de $n$ na variável $i$, ou seja, executar $n$ vezes, as instruções abaixo:
+    - Incrementar o valor atual $fator$ multiplicando pelo valor de $i$;
+4. Exibir o resultado ($n!$).
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite um numero inteiro nao-negativo:"}}
+B --> C[/n/]
+C --> D{n >= 0}
+D --TRUE--> E[fator = 1]
+D --FALSE--> J{{"O valor deve ser maior ou igual a zero!"}}
+J --> I([FIM])
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> H{{O fatorial de, n, é:, fator}}
+F --"i=1,2,..n"--> G[fator = fator * i]
+G --LOOP--> F
+H --> I
+```
+
+#### Pseudocódigo (2 pontos)
+
+```java
+ALGORITMO CalcFatorial
+DECLARE n: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite um numero inteiro nao-negativo:"
+
+    // Insira seu comentário
+    LEIA n
+
+    // Insira seu comentário
+    SE n >= 0 ENTAO
+
+        // Insira seu comentário
+        fator <- 1
+
+        // Insira seu comentário
+        PARA i DE 1 ATÉ n PASSO 1 FAÇA
+
+            // Insira seu comentário
+            fator <- fator * i        // fator *= i
+
+        FIM_PARA
+
+        // Insira seu comentário
+        ESCREVA "O fatorial de, n, é:", fator
+
+    // Insira seu comentário
+    SENAO
+        ESCREVA "O valor deve ser maior ou igual a zero!"
+    FIM_SE
+
+FIM
+```
+
+#### Tabela de testes
+
+| n  | fator | i  | fator = fator * i | saída               |
+| -- | --    | -- | --                | --                  |
+| 3  | 1     | 1  | 1*1 = 1           |                     |
+| 3  | 1     | 2  | 1*2 = 2           |                     |
+| 3  | 2     | 3  | 2*3 = 6           | O fatorial de 3 é 6 |
+
+### Questão 6 - Geração da sequência de Fibonacci (2 pontos)
+
+Gerar e imprimir os $n$ primeiros termos da sequência de Fibonacci, onde $n ≥ 1$. <br>
+Os primeiros termos são: $0, 1, 1, 2, 3, 5, 8, 13, \dots$. Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecessores mais próximos.
+
+#### Descrição geral do algoritmo
+
+1. Obter o número de termos $n$, onde $n \geq 1$;
+2. Inicializar os dois primeiros termos da série nas variável $a$ e $b$ com 0 (zero);
+3. Iterar o valor de $n$, ou seja, executar $n$ vezes, as instruções abaixo:
+    - Imprimir o termo inicial $a$ (instrução para exibir a sequência ao atualizar a variável $a$);
+    - Somar os termos $a$ e $b$ na variável $termo_atual$;
+    - Atribuir a variável $a$ o valor da variável $b$;
+    - Atribuir a variável $b$ o valor da variável $termo_atual$.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Número de termos da série Fibonacci:"}}
+B --> C[/n/]
+C --> D[a = 0]
+D --> E[b = 1]
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> K([FIM])
+F --"i=1,2,...,n"--> G{{a}}
+G --> H[termo_atual = a + b]
+H --> I[a = b]
+I --> J[b = termo_atual]
+J --LOOP--> F 
+```
+
+#### Pseudocódigo (2 pontos)
+
+```java
+ALGORITMO GeraFibonacci
+DECLARE n, a, b, termo_atual: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Número de termos da série Fibonacci:"
+
+    // Insira seu comentário
+    LEIA n
+
+    // Insira seu comentário
+    a <- 0
+
+    // Insira seu comentário
+    b <- 1
+
+    // Insira seu comentário
+    PARA i DE 1 ATE n FAÇA
+
+        // Insira seu comentário
+        ESCREVA a
+
+        // Insira seu comentário
+        termo_atual <- a + b
+
+        // Insira seu comentário
+        a <- b
+
+        // Insira seu comentário
+        b <- termo_atual
+
+    FIM_PARA
+FIM
 
 ```
-### COMENTARIO 
-Esse pseudocódigo descreve um algoritmo para contar o número de alunos aprovados, considerando um intervalo de notas entre 50 e 100. Inicialmente, solicita-se ao usuário que insira o número total de alunos ('n'). Em seguida, o algoritmo inicia um loop enquanto 'i' for menor ou igual a 'n'. Dentro desse loop, o algoritmo solicita a nota do aluno 'i' e verifica se está dentro do intervalo de aprovação (50 a 100). Se a nota estiver dentro desse intervalo, o contador 'cont' é incrementado em 1. Após percorrer todas as notas dos alunos, o algoritmo exibe o número total de alunos aprovados. Este é um algoritmo simples e eficaz para calcular a contagem de alunos aprovados em um conjunto de notas.
+#### Tabela de testes
 
-### Exercicio 3
+| it | n  | a  | b  | i  | saída | termo_atual = a + b | a = b | b = termo_atual |
+| -- | -- | -- | -- | -- | --    | --                  | --    | --              |
+| 1  | 5  | 0  | 1  | 1  | 0     | 0 + 1 = 1           | 1     | 1               |
+| 2  | 5  | 1  | 1  | 2  | 1     | 1 + 1 = 2           | 1     | 2               |
+| 3  | 5  | 1  | 2  | 3  | 1     | 1 + 2 = 3           | 2     | 3               |
+| 4  | 5  | 2  | 3  | 4  | 2     | 2 + 3 = 5           | 3     | 5               |
+| 4  | 5  | 3  | 5  | 5  | 3     | 3 + 5 = 8           | 5     | 8               |
+
+### Questão 7 - Inversão dos dígitos de um número inteiro (2 pontos)
+
+Implemente e teste um algoritmo para inverter a ordem dos dígitos de um número inteiro positivo.
+
+#### Descrição geral do algoritmo
+
+1. Obter o número inteiro positivo $num$ a ser invertido;
+2. Inicializar a variável $num \textunderscore inv$ com 0 (zero);
+3. Enquanto o número for maior que zero ($num > 0$), faça repetidamente:
+    - Calcular o último dígito do número na variável $digito$;
+    - Adicionar o dígito ao número invertido $num \textunderscore inv$;
+    - Remover o último dígito do número original $num$; 
+4. Exibir o número invertido.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite um número inteiro: }}
+B --> C[\num\]
+C --> D{num >= 0}
+D --TRUE--> G[num_inv = 0]
+G --> H{num > 0}
+H --FALSE--> Z{{"Número invertido:", numero_inv}}
+Z --> W([FIM])
+H --TRUE--> I[digito = num % 10]
+I --> J[num_inv = num_inv * 10 + digito]
+J --> K[num = num // 10]
+K --LOOP--> H
+D --FALSE--> E{{O número deve ser positivo!}}
+E --> W
 ```
-1  ALGORITMO soma_numeros
-2  DECLARE n, soma, i, num: INTEIRO
-3  INICIO
-4    ESCREVA "Digite a quantidade de números (n >= 0): "
-5    LEIA n
-6    SE n < 0 ENTAO
-7      ESCREVA "O valor deve ser maior ou igual a zero!"
-8      RETORNE
-9    FIM_SE
-10   soma = 0
-11   i = 1
-12   ENQUANTO i <= n FAÇA
-13     ESCREVA "Digite um número: "
-14     LEIA num
-15     soma = soma + num
-16     i = i + 1
-17   FIM_ENQUANTO
-18   ESCREVA "A soma dos números é ", soma
-19 FIM
 
+#### Pseudocódigo (2 pontos)
+
+```java
+Algoritmo InverteInteiro
+DECLARE num, num_inv, digito: INTEIRO
+
+INICIO
+
+    // Insira seu comentário
+    ESCREVA "Digite o número a ser invertido:"
+    LEIA num
+
+    // Insira seu comentário
+    SE num < 0 ENTAO
+
+        // Insira seu comentário
+        ESCREVA "O número deve ser positivo!"
+
+    // Insira seu comentário
+    SENAO
+
+        // Insira seu comentário
+        num_inv <- 0
+
+        // Insira seu comentário
+        ENQUANTO num > 0 FAÇA
+
+            // Insira seu comentário
+            digito <- num % 10
+
+            // Insira seu comentário
+            num_inv <- (num_inv * 10) + digito
+
+            // Insira seu comentário
+            num <- num // 10
+
+        // Insira seu comentário
+        ESCREVA "Número invertido:", num_inv
+
+    FIM_SE
+
+FIM
 ```
-### COMENTARIOS 
-Este pseudocódigo descreve um algoritmo para calcular a soma de uma quantidade 'n' de números fornecidos pelo usuário. Primeiro, solicita-se ao usuário que insira a quantidade de números ('n'), garantindo que 'n' seja maior ou igual a zero. Se 'n' for menor que zero, o algoritmo exibirá uma mensagem de erro e retornará, encerrando a execução. Caso contrário, a variável 'soma' é inicializada como zero e um loop é iniciado para solicitar 'n' números do usuário. A cada iteração do loop, o algoritmo adiciona o número fornecido à variável 'soma'. Após a obtenção de todos os números, a soma total é exibida. Este é um algoritmo simples e útil para calcular a soma de uma série de números fornecidos pelo usuário, com uma validação básica para garantir que a quantidade de números seja válida.
 
-### Exercicio 4
-```
-1  ALGORITMO serie_S
-2  DECLARE n, i, numerador, denominador: INTEIRO
-3  DECLARE termo, S: REAL
-4  INICIO
-5    ESCREVA "Digite o número de termos da série S: "
-6    LEIA n
-7    S = 0
-8    PARA i DE 0 ATÉ n PASSO 1 FAÇA
-9      numerador = 2 * i + 1
-10     denominador = 2 * i + 2
-11     termo = numerador / denominador
-12     S += termo
-13   FIM_PARA
-14   ESCREVA "Soma da série S é ", S
-15 FIM
+#### Tabela de testes
 
-```
-### COMENTARIOS 
-Este é um algoritmo eficiente para calcular a soma de uma série matemática específica até um número de termos determinado pelo usuário. É útil para fins de análise numérica e pode ser adaptado para diferentes séries matemáticas.
-
-### Exercicio 5
-```
-1  ALGORITMO calcular_fatorial
-2  DECLARE n, i, fator: INTEIRO
-3  INICIO
-4    ESCREVA "Digite um número inteiro não-negativo: "
-5    LEIA n
-6    SE n < 0 ENTAO
-7      ESCREVA "O valor deve ser maior ou igual a zero!"
-8      RETORNE
-9    FIM_SE
-10   fator = 1
-11   PARA i DE 1 ATÉ n PASSO 1 FAÇA
-12     fator = fator * i
-13   FIM_PARA
-14   ESCREVA "O fatorial de ", n, " é: ", fator
-15 FIM
-
-```
-### COMENTARIO
-Este pseudocódigo descreve um algoritmo para calcular o fatorial de um número inteiro não negativo fornecido pelo usuário. Inicialmente, o usuário é solicitado a inserir um número inteiro não negativo ('n'). O algoritmo verifica se o número fornecido é válido, ou seja, se é maior ou igual a zero. Se o número não for válido, o algoritmo exibirá uma mensagem de erro e encerrará a execução. Caso contrário, o algoritmo calcula o fatorial do número utilizando um loop 'PARA', multiplicando progressivamente o valor de 'fator' pelo valor atual do índice do loop até atingir 'n'. Após o término do loop, o resultado do fatorial é exibido na tela. Este é um algoritmo eficiente e comum para calcular o fatorial de um número inteiro, útil em diversas aplicações matemáticas e de programação.
-
-### Exercicio 6
-```
-1  ALGORITMO serie_fibonacci
-2  DECLARE n, a, b, termo_atual, i: INTEIRO
-3  INICIO
-4    ESCREVA "Número de termos da série Fibonacci: "
-5    LEIA n
-6    a = 0
-7    b = 1
-8    PARA i DE 1 ATÉ n PASSO 1 FAÇA
-9      ESCREVA a
-10     termo_atual = a + b
-11     a = b
-12     b = termo_atual
-13   FIM_PARA
-14 FIM
-
-```
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo para gerar os primeiros 'n' termos da sequência de Fibonacci. A sequência de Fibonacci é uma série de números em que cada número é a soma dos dois anteriores.
-
-No início do algoritmo, o usuário é solicitado a fornecer o número de termos da sequência desejada ('n'). As variáveis 'a' e 'b' são inicializadas como 0 e 1, respectivamente, pois estes são os dois primeiros números da sequência.
-
-Em seguida, um loop 'PARA' é utilizado para iterar de 1 até 'n', onde cada iteração exibe o valor atual de 'a' (que é o primeiro número da sequência de Fibonacci para a iteração atual), calcula o próximo termo da sequência de Fibonacci somando 'a' e 'b' e atualiza as variáveis 'a' e 'b' para os próximos números na sequência.
-
-Ao final do loop, os 'n' primeiros termos da sequência de Fibonacci são exibidos. Este é um algoritmo simples e eficaz para gerar a sequência de Fibonacci até um número específico de termos, sendo útil em várias aplicações matemáticas e de programação.
-
-### Exercicio 7
-```
-1  ALGORITMO inverte_numero
-2  DECLARE num, num_inv, digito: INTEIRO
-3  INICIO
-4    ESCREVA "Digite um número inteiro: "
-5    LEIA num
-6    SE num >= 0 ENTAO
-7      num_inv = 0
-8      SE num > 0 ENTAO
-9        REPITA
-10         digito = num % 10
-11         num_inv = num_inv * 10 + digito
-12         num = num // 10
-13        ATÉ num > 0
-14     ESCREVA "Número invertido:", num_inv
-15   SENAO
-16     ESCREVA "O número deve ser positivo!"
-17   FIM_SE
-18 FIM
-
-```
-### COMENTARIO 
-Este pseudocódigo descreve um algoritmo para inverter um número inteiro positivo fornecido pelo usuário.
-
-Inicialmente, o usuário é solicitado a inserir um número inteiro ('num'). O algoritmo verifica se o número fornecido é maior ou igual a zero. Se for, o algoritmo inicia o processo de inversão.
-
-O algoritmo utiliza uma variável 'num_inv' para armazenar o número invertido e um loop 'REPITA' para iterar enquanto o número fornecido for maior que zero. Dentro do loop, o algoritmo calcula o último dígito do número original ('num') usando o operador de módulo (%), e adiciona esse dígito à variável 'num_inv' após deslocar os dígitos já invertidos uma posição para a esquerda e somar o último dígito. O número original é então atualizado, dividindo-o por 10 para remover o último dígito.
-
-Após inverter todos os dígitos do número, o algoritmo exibe o número invertido ('num_inv'). Se o número fornecido não for positivo, o algoritmo exibirá uma mensagem de erro.
-
-Este é um algoritmo eficiente e útil para inverter números inteiros positivos, e pode ser utilizado em diversas aplicações, como processamento de dados e criptografia.
+| it | num | num_inv | num > 0 | digito | num = num // 10 | num_inv = (num_inv * 10) + digito | Saída                        |
+| -- | --  | --      | --     | --      | --              | --                                | --                           |
+|    | -1  | 0       | False  |         |                 |                                   | O número deve ser positivo!  |
+| 1  | 0   | 0       | False  |         |                 |                                   | Número invertido:: 0         |
+| 1  | 42  | 0       | True   | 2       | 4               | 2                                 |                              |
+| 2  | 4   | 2       | True   | 4       | 0               | 24                                |                              |
+| 3  | 0   | 24      | False  |         |                 |                                   | Número invertido:: 24        |
